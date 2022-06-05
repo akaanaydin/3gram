@@ -19,6 +19,7 @@
 		B948E1C1284AD30000C9F09D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948E1C0284AD30000C9F09D /* HomeViewModel.swift */; };
 		B948E1C5284AE0F300C9F09D /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948E1C4284AE0F300C9F09D /* PhotoModel.swift */; };
 		B948E1C7284AE12C00C9F09D /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B948E1C6284AE12C00C9F09D /* CommentModel.swift */; };
+		B9803869284D394800BDF5EE /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9803868284D394800BDF5EE /* ServiceManager.swift */; };
 		B98EAE172849685600B6D181 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98EAE152849685600B6D181 /* CommentCell.swift */; };
 		B98EAE182849685600B6D181 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B98EAE162849685600B6D181 /* CommentCell.xib */; };
 		B9C91DBF284D0D85001BE953 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C91DBE284D0D85001BE953 /* CommentViewModel.swift */; };
@@ -49,6 +50,7 @@
 		B948E1C0284AD30000C9F09D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B948E1C4284AE0F300C9F09D /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		B948E1C6284AE12C00C9F09D /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		B9803868284D394800BDF5EE /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		B98EAE152849685600B6D181 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		B98EAE162849685600B6D181 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		B9C91DBE284D0D85001BE953 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
@@ -133,6 +135,22 @@
 			path = Comments;
 			sourceTree = "<group>";
 		};
+		B980386A284D47C000BDF5EE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B9803868284D394800BDF5EE /* ServiceManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B980386B284D47CA00BDF5EE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B948E1B8284ACCF700C9F09D /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B98EAE142849683A00B6D181 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +215,8 @@
 		B9CBD4232847FE1800A8E056 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B948E1B8284ACCF700C9F09D /* Service.swift */,
+				B980386B284D47CA00BDF5EE /* Service */,
+				B980386A284D47C000BDF5EE /* Manager */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -413,6 +432,7 @@
 				B93F36ED284976D900A8E52C /* CollectionCell.swift in Sources */,
 				B948E1BF284ACDDF00C9F09D /* NetworkConstant.swift in Sources */,
 				B9CBD42E2847FF8800A8E056 /* HomeController.swift in Sources */,
+				B9803869284D394800BDF5EE /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Y58TRUZ8U;
@@ -587,6 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Y58TRUZ8U;

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Side Menu Model
 struct SideMenuModel {
     var title: String
 }

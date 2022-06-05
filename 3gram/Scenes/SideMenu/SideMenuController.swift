@@ -82,11 +82,6 @@ extension SideMenuController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.delegate?.selectedCell(indexPath.row)
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 33032c1bb62e4dc58ac10cea61a0e82301a3012e
-    }
-    
+}
 }

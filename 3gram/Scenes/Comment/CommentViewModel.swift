@@ -6,28 +6,34 @@
 //
 
 import Foundation
+import Alamofire
 
+// MARK: - Comment View Model Protocol
 protocol CommentViewModelProtocol {
-    func fetchComments(completion: @escaping ([CommentModel]?) -> Void)
+    func fetchComments(onSuccess: @escaping ([CommentModel]?) -> Void, onError: @escaping (AFError) -> Void)
 }
 
+// MARK: - Comment View Model
 final class CommentViewModel: CommentViewModelProtocol {
+
     private let service: ServiceProtocol
     init(service: ServiceProtocol){
         self.service = service
     }
 }
 
+// MARK: - Extensions
 extension CommentViewModel {
-    
-    func fetchComments(completion: @escaping ([CommentModel]?) -> Void) {
-        service.fetchComments { data in
+    // Fetch Comments
+    func fetchComments(onSuccess: @escaping ([CommentModel]?) -> Void, onError: @escaping (AFError) -> Void) {
+        service.fetchComments { [weak self] data in
             guard let data = data else {
-                completion(nil)
+                onSuccess(nil)
                 return
             }
-            completion(data)
+            onSuccess(data)
+        } onError: { error in
+            onError(error)
         }
     }
-    
 }

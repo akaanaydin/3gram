@@ -8,7 +8,7 @@
 import UIKit
 
 class AboutController: UIViewController {
-    
+// MARK: - UI Elements
     @IBOutlet var sideMenuButton: UIBarButtonItem!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var logoImage: UIImageView!
@@ -16,7 +16,7 @@ class AboutController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var followUsLabel: UILabel!
     
-    
+// MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +25,7 @@ class AboutController: UIViewController {
         
         configure()
     }
+// MARK: - Buttons
     @IBAction func socialButtons(_ sender: UIButton) {
         switch sender.tag {
         case 0:
@@ -50,17 +51,22 @@ class AboutController: UIViewController {
         }
     }
     
-    
-    
+// MARK: - Functions
+    // Configure Function
     private func configure() {
         drawDesign()
     }
+    // Design Function
     private func drawDesign() {
+        // Navigation Bar
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .white
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
+        // View Controller
         view.backgroundColor = UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 246.0/255.0, alpha: 1.0)
+        
+        // View
         mainView.layer.cornerRadius = 12
         mainView.clipsToBounds = true
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - AlbumModel
+// MARK: - Album Model
 struct AlbumModel: Codable {
     let userID, id: Int?
     let title: String?

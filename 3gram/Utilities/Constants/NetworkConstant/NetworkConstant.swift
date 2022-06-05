@@ -8,8 +8,11 @@
 import Foundation
 
 extension Constant {
+// MARK: - Network Constant
     class NetworkConstant{
+        
         enum AlbumServiceEndPoint: String {
+            
         case BASE_URL = "https://jsonplaceholder.typicode.com"
         case ALBUMS = "/albums"
         case PHOTOS = "/photos"

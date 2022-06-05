@@ -19,21 +19,21 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make up Masterclass w/ the best in the industry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-Ve-diI">
                         <rect key="frame" x="10" y="10" width="354" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="asW-xd-Bdw">
-                        <rect key="frame" x="10" y="38" width="354" height="232"/>
+                        <rect key="frame" x="10" y="38" width="354" height="246"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="354" id="DtK-eV-75j"/>
-                            <constraint firstAttribute="height" constant="232" id="sH7-eA-4GZ"/>
+                            <constraint firstAttribute="height" constant="246" id="KtJ-OH-iiE"/>
+                            <constraint firstAttribute="width" constant="354" id="qtY-7H-tjX"/>
                         </constraints>
                         <viewLayoutGuide key="contentLayoutGuide" id="LEk-jX-wKb"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="AqU-RO-yy3"/>
                     </scrollView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-up-AxI">
-                        <rect key="frame" x="10" y="281" width="354" height="26"/>
+                        <rect key="frame" x="10" y="292" width="354" height="26"/>
                         <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="currentPageIndicatorTintColor" name="AccentColor"/>
                     </pageControl>
@@ -41,16 +41,16 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="WIr-up-AxI" firstAttribute="top" secondItem="asW-xd-Bdw" secondAttribute="bottom" constant="11" id="5QF-9C-Ng4"/>
-                <constraint firstItem="CVM-Ve-diI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="HVz-9G-Jsi"/>
-                <constraint firstAttribute="bottom" secondItem="WIr-up-AxI" secondAttribute="bottom" constant="31" id="LtW-9O-sli"/>
-                <constraint firstAttribute="trailing" secondItem="WIr-up-AxI" secondAttribute="trailing" constant="10" id="P8B-Hl-Wea"/>
-                <constraint firstItem="asW-xd-Bdw" firstAttribute="trailing" secondItem="CVM-Ve-diI" secondAttribute="trailing" id="Xvw-71-Rm0"/>
-                <constraint firstItem="WIr-up-AxI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Ygd-7e-Skb"/>
-                <constraint firstAttribute="trailing" secondItem="CVM-Ve-diI" secondAttribute="trailing" constant="10" id="e2m-m9-djJ"/>
-                <constraint firstItem="asW-xd-Bdw" firstAttribute="leading" secondItem="CVM-Ve-diI" secondAttribute="leading" id="kY6-2X-PPu"/>
-                <constraint firstItem="asW-xd-Bdw" firstAttribute="top" secondItem="CVM-Ve-diI" secondAttribute="bottom" constant="11" id="uvA-IG-1Z6"/>
-                <constraint firstItem="CVM-Ve-diI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="yvQ-8t-XBN"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="4He-hq-Exr"/>
+                <constraint firstAttribute="bottom" secondItem="asW-xd-Bdw" secondAttribute="bottom" constant="54" id="BHB-ID-JfX"/>
+                <constraint firstItem="asW-xd-Bdw" firstAttribute="top" secondItem="CVM-Ve-diI" secondAttribute="bottom" constant="11" id="JeC-km-k1e"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="leading" secondItem="WIr-up-AxI" secondAttribute="leading" id="LsM-q1-5q3"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="trailing" secondItem="asW-xd-Bdw" secondAttribute="trailing" id="Wol-G9-7FK"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="leading" secondItem="asW-xd-Bdw" secondAttribute="leading" id="dhd-Mj-xjb"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="f47-VL-1Jc"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="fiA-tW-adt"/>
+                <constraint firstItem="WIr-up-AxI" firstAttribute="top" secondItem="asW-xd-Bdw" secondAttribute="bottom" constant="8" id="m0v-Me-3kQ"/>
+                <constraint firstItem="CVM-Ve-diI" firstAttribute="trailing" secondItem="WIr-up-AxI" secondAttribute="trailing" id="zUt-Sk-qXo"/>
             </constraints>
             <size key="customSize" width="374" height="338"/>
             <connections>

@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Alamofire
 
+// MARK: - View Model Protocol
 protocol ViewModelProtocol {
-    func fetchAlbums(completion: @escaping ([AlbumModel]?) -> Void)
-    func fetchPhotos(completion: @escaping ([PhotoModel]?) -> Void)
+    func fetchAlbums(onSuccess: @escaping ([AlbumModel]?) -> Void, onError: @escaping (AFError) -> Void)
+    func fetchPhotos(onSuccess: @escaping ([PhotoModel]?) -> Void, onError: @escaping (AFError) -> Void)
 }
 
+// MARK: - View Model
 final class HomeViewModel: ViewModelProtocol {
     private let service: ServiceProtocol
     init(service: ServiceProtocol){
@@ -19,24 +22,31 @@ final class HomeViewModel: ViewModelProtocol {
     }
 }
 
+// MARK: - Extensions
 extension HomeViewModel {
-    func fetchAlbums(completion: @escaping ([AlbumModel]?) -> Void) {
-        service.fetchAlbums { data in
+    // Fetch Albums
+    func fetchAlbums(onSuccess: @escaping ([AlbumModel]?) -> Void, onError: @escaping (AFError) -> Void) {
+        service.fetchAlbums { [weak self] data in
             guard let data = data else {
-                completion(nil)
+                onSuccess(nil)
                 return
             }
-            completion(data)
+            onSuccess(data)
+        } onError: { error in
+            onError(error)
         }
+
     }
-    
-    func fetchPhotos(completion: @escaping ([PhotoModel]?) -> Void) {
-        service.fetchPhotos { data in
+    // Fetch Photos
+    func fetchPhotos(onSuccess: @escaping ([PhotoModel]?) -> Void, onError: @escaping (AFError) -> Void) {
+        service.fetchPhotos { [weak self] data in
             guard let data = data else {
-                completion(nil)
+                onSuccess(nil)
                 return
             }
-            completion(data)
+            onSuccess(data)
+        } onError: { error in
+            onError(error)
         }
     }
 }

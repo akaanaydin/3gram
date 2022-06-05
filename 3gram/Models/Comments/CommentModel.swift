@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - CommentModel
+// MARK: - Comment Model
 struct CommentModel: Codable {
     let postID, id: Int?
     let name, email, body: String?
