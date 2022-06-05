@@ -83,12 +83,6 @@ extension SideMenuController: UITableViewDataSource {
         
         self.delegate?.selectedCell(indexPath.row)
 
-        // ...
-        
-        // Remove highlighted color when you press the 'Profile' and 'Like us on facebook' cell
-        if indexPath.row == 4 || indexPath.row == 6 {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
     }
     
 }

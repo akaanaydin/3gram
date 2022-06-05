@@ -6,26 +6,46 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftUI
+import Kingfisher
 
 class HomeController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var sideMenuButton: UIBarButtonItem!
     
+    private var viewModel: ViewModelProtocol = HomeViewModel(service: Service())
+    
+    var albumTitleResult = [AlbumModel]()
+    var photoAndDescriptionResult = [PhotoModel]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Bundle.main.loadNibNamed("HomeController", owner: self, options: nil)
+        
+        let nib = UINib(nibName: String(describing: CollectionCell.self), bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: String(describing: CollectionCell.self))
         
         sideMenuButton.target = revealViewController()
         sideMenuButton.action = #selector(revealViewController()?.revealSideMenu)
         
         configure()
+        
+        viewModel.fetchAlbums { [weak self] data in
+            guard let data = data else { return }
+            self?.albumTitleResult = data
+            
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+       
     }
-    
     
     private func configure() {
         drawDesign()
     }
+    
     private func drawDesign() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .white
@@ -34,7 +54,43 @@ class HomeController: UIViewController {
         
         view.backgroundColor = UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 246.0/255.0, alpha: 1.0)
         
-        collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
     }
     
+}
+
+extension HomeController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        albumTitleResult.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell: CollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CollectionCell.self), for: indexPath) as? CollectionCell else {
+            return UICollectionViewCell()
+        }
+        
+        
+        cell.layer.cornerRadius = 12
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.clipsToBounds = true
+        cell.backgroundColor = .white
+        cell.fetchTitle(model: albumTitleResult[indexPath.row])
+        cell.fetchImageAndDescription(indexPath.row)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(
+            width: collectionView.frame.size.width,
+            height: collectionView.frame.size.height / 2.4
+        )
+        
+    }
 }
